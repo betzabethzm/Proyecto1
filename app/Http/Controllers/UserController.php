@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;               
 use Illuminate\Http\Request;
+use Inertia\Inertia;              
+use Inertia\Response;              
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
         $users = User::all();
 
-        return Inertia::
+        return Inertia::render('Users/Index', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -21,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // return Inertia::render('Users/Create');
     }
 
     /**
@@ -29,7 +34,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validación y creación
     }
 
     /**
@@ -37,7 +42,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Mostrar usuario
     }
 
     /**
@@ -45,7 +50,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // return Inertia::render('Users/Edit', [...]);
     }
 
     /**
@@ -53,7 +58,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Actualizar usuario
     }
 
     /**
@@ -61,6 +66,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // eliminar usuario
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\RoleController
-use App\Http\Controllers\UserController
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -18,8 +18,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
-/*Users Routes*/
-Route::resourse('users', UserController::class)->names('users');
-Route::resourse('roles', RoleController::class)->names('roles');
+/* Users Routes */
+Route::resource('users', UserController::class)->names('users');
+Route::resource('roles', RoleController::class)->names('roles');
 
 require __DIR__.'/settings.php';
